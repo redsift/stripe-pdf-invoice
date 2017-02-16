@@ -69,7 +69,7 @@ StripePdfInvoice.prototype.generate = function(invoiceId, data, callback) {
                 invoice.due_date_formated = invoice.date_formated;
             invoice.pdf_name = invoice.pdf_name ? (invoice.pdf_name + '.pdf') : ('INVOICE_' + moment.unix(invoice.date).format('YYYY-MM-DD') + '_#' + invoice.number + '.pdf');
 
-            invoice.company_logo = invoice.company_logo ? path.resolve(invoice.company_logo.toString()) : null;
+            invoice.company_logo = invoice.company_logo ? path.resolve(__dirname + '/assets/' + invoice.company_logo) : null;
             if(invoice.company_logo && fs.existsSync(invoice.company_logo))
             {
                 var dimensions = sizeOf(invoice.company_logo);
@@ -106,7 +106,7 @@ StripePdfInvoice.prototype.generate = function(invoiceId, data, callback) {
                     path.resolve(path.resolve(__dirname + '/css/foundation.min.css'))
                 ]
             });
-            callback(null, invoice.pdf_name, wkhtmltopdf(html, {pageSize: 'letter'}));
+            callback(null, invoice.pdf_name, wkhtmltopdf(html, {zoom: 3.0}));
         }
         else
             callback(error);
