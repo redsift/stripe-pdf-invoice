@@ -1,6 +1,6 @@
 'use strict';
 
-var jade = require('jade');
+var pug = require('pug');
 var wkhtmltopdf = require('wkhtmltopdf');
 var path = require('path');
 var _ = require('underscore');
@@ -99,7 +99,7 @@ StripePdfInvoice.prototype.generate = function(invoiceId, data, callback) {
             invoice.tax_percent = invoice.tax_percent || 0;
 
 
-            var html = jade.renderFile(path.resolve(__dirname + '/templates/invoice.jade'), {
+            var html = pug.renderFile(path.resolve(__dirname + '/templates/invoice.pug'), {
                 invoice : invoice,
                 cssRessource : [
                     path.resolve(path.resolve(__dirname + '/css/invoice.css')),

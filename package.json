@@ -1,14 +1,14 @@
 {
   "name": "stripe-pdf-invoice",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "index.js",
   "dependencies": {
     "async": "^1.0.0",
-    "image-size": "^0.3.5",
-    "jade": "^1.9.2",
-    "moment": "^2.10.3",
-    "request": "^2.57.0",
-    "stripe": "^3.3.4",
+    "image-size": "^0.5.2",
+    "pug":"2.0.0-rc.1",
+    "moment": "^2.18.1",
+    "request": "^2.81.0",
+    "stripe": "^4.18.0",
     "underscore": "^1.8.3",
     "wkhtmltopdf": "git+https://git@github.com/redsift/node-wkhtmltopdf.git#headless"
   },
