@@ -60,7 +60,7 @@ StripePdfInvoice.prototype.generate = function(invoiceId, data, callback) {
             invoice.company_name = invoice.company_name || 'My company';
             invoice.date_format = invoice.date_format || 'MMMM Do, YYYY';
             invoice.client_company_name = invoice.client_company_name || 'Client Company';
-            invoice.number = invoice.number || '12345';
+            invoice.number = invoice.number || (invoice.receipt_number && invoice.receipt_number.replace(/\D+/g, '')) || '1';
             invoice.currency_position_before = invoice.currency_position_before || true;
             invoice.date_formated = moment.unix(invoice.date).locale(invoice.language || 'en').format(invoice.date_format);
             if(invoice.due_days && !isNaN(invoice.due_days))
